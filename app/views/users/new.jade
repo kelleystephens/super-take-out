@@ -1,0 +1,9 @@
+extends ../shared/template
+
+block content
+  h1= title
+
+  form(action='/login', method='post')
+    input(type='email', name='email' autofocus=true, placeholder='Email Address' )
+    input(type='password', name='password', placeholder='Enter Password')
+    button(class='button grey small') Login!

@@ -1,0 +1,26 @@
+extends ../shared/template
+
+block content
+  h1= title
+
+  #user= user.email
+
+  form#order
+    div.formwrapper
+      input.qty(type='number', name='qty', placeholder='Qty')
+      select.menu(name='menu')
+        option Select a Menu
+          each menu in menus
+            option= menu
+      select.dish(name='dish')
+        option Select a Dish
+  div#buttonwrapper
+    button#add(class='button grey small') Add Row
+
+  #totals
+    #totalcals Total Calories:
+    #totalcost Total: $
+    button#placeorder(class='button grey small') Place Order
+
+block scripts
+  script(src='/js/es6/compiled/orders.js')
