@@ -1,6 +1,29 @@
 body{
   background-image: url('/img/spoon.png');
   background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: #ff4b3b;
+}
+
+#logo, #logo2{
+  background-image: url('/img/spoon-close.png');
+  background-size: cover;
+  background-position: top center;
+  width: 150px;
+  height:150px;
+  position: absolute;
+  overflow: hidden;
+}
+
+#logo{
+  top: 0;
+  left: 0;
+}
+
+#logo2{
+  top: 0;
+  right: 0;
 }
 
 h1{
@@ -29,7 +52,8 @@ form{
 }
 
 #order{
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
+  padding-bottom: 200px;
 }
 
 select{
@@ -58,7 +82,7 @@ select{
 #buttonwrapper{
   text-align: center;
   width: 90%;
-  margin: 10px auto;
+  margin: 0 auto 20px auto;
 }
 
 input{

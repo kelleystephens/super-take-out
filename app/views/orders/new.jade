@@ -1,26 +1,31 @@
 extends ../shared/template
 
 block content
+  body(style='background-image: none; background-color: #ff4b3b')
+  #logo
+  #logo2
   h1= title
 
   #user= user.email
 
-  form#order
+  div#buttonwrapper
+    button#add(class='button grey small') Add Row
+  form#order(action='/orders', method='post')
+    button Place Order
     div.formwrapper
       input.qty(type='number', name='qty', placeholder='Qty')
-      select.menu(name='menu')
+      select.menu
         option Select a Menu
           each menu in menus
             option= menu
-      select.dish(name='dish')
+      select.dish(name='dishId')
         option Select a Dish
-  div#buttonwrapper
-    button#add(class='button grey small') Add Row
+      button.remove X
 
   #totals
-    #totalcals Total Calories:
-    #totalcost Total: $
-    button#placeorder(class='button grey small') Place Order
+    #totalcals Total Calories: 0
+    #totalcost Total: $0
+    button#placeorder(type='submit', class='button grey small') Place Order
 
 block scripts
   script(src='/js/es6/compiled/orders.js')

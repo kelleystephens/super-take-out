@@ -1,0 +1,18 @@
+extends ../shared/template
+
+block content
+  body(style='background-image: none; background-color: #ff4b3b')
+  #logo
+  #logo2
+  h1= title
+
+  #user= user.email
+
+  .pastorders
+    each order in orders
+      .date= order.date
+      .total= order.totalcost
+      .totalcalories= order.totalcalories
+
+block scripts
+  script(src='/js/es6/compiled/orders.js')
