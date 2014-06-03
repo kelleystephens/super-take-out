@@ -8,11 +8,15 @@ block content
 
   #user= user.email
 
+  #new: a(href='/orders' class='button grey small') New Order
+
   .pastorders
     each order in orders
-      .date= order.date
-      .total= order.totalcost
-      .totalcalories= order.totalcalories
+      .history
+        .date= order.date.toDateString()
+        .total Cost: $#{order.totalCost.toFixed(2)}
+        .totalcalories Calories: #{order.totalCals}
+        .itemsordered Items Ordered: #{order.meal.length}
 
 block scripts
   script(src='/js/es6/compiled/orders.js')

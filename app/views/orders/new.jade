@@ -11,7 +11,6 @@ block content
   div#buttonwrapper
     button#add(class='button grey small') Add Row
   form#order(action='/orders', method='post')
-    button Place Order
     div.formwrapper
       input.qty(type='number', name='qty', placeholder='Qty')
       select.menu
@@ -20,7 +19,8 @@ block content
             option= menu
       select.dish(name='dishId')
         option Select a Dish
-      button.remove X
+      button.remove
+        i.fa.fa-trash-o
 
   #totals
     #totalcals Total Calories: 0

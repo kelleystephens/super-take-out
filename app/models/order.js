@@ -11,7 +11,7 @@
 class Order{
   static create(userId, order, fn){
     var o = new Order(); //creates a blank object
-    o.userId = Mongo.ObjectId(userId);
+    o.userId = Mongo.ObjectID(userId);
     o.date = new Date();
 
     var quantities = _([order.qty]).flatten().map(q=>q*1).value();
@@ -26,6 +26,13 @@ class Order{
     });
   }
 
+  static findAllByUserId(userId, fn){
+    userId = Mongo.ObjectID(userId);
+
+    orders.find({userId:userId}).toArray((e, records)=>{
+      fn(records);
+    });
+  }
 
 }
 

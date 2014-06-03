@@ -9,7 +9,6 @@ var Order = traceur.require(__dirname + '/../models/order.js');
 exports.new = (req, res)=>{
   Dish.findMenu(menus=>{
     User.findByUserId(req.session.userId, user=>{
-      debugger;
         res.render('orders/new', {user:user, menus:menus, title: 'Order Food'});
     });
   });
@@ -19,8 +18,10 @@ exports.create = (req, res)=>{
   Order.create(req.session.userId, req.body, ()=>res.redirect('/orders/history'));
 };
 
-// exports.history = ()=>{
-//   User.findByUserId(req.session.userId, user=>{
-//     Order.findAllByUserId
-//   });
-// }
+exports.history = (req, res)=>{
+  User.findByUserId(req.session.userId, user=>{
+    Order.findAllByUserId(req.session.userId, orders=>{
+      res.render('orders/history', {orders:orders, user:user, title:'Order History'});
+    });
+  });
+};
